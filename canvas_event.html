@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="bower_components/fabric.js/dist/fabric.js"></script>
+	<title>Example Canvas </title>
+</head>
+<body>
+	<canvas id="cavasEvent" width="500" height="500"></canvas>
+	<button onclick="return removeImge();"> Remove </button>
+	<img src="test.png" id = "myImge" >
+</body>
+<script type="text/javascript">
+	var cavasEvent = new fabric.Canvas('cavasEvent');
+	
+	var image = document.getElementById('myImge');
+	var imgInstance = new fabric.Image(image, {
+											  left: 100,
+											  top: 100,
+											  angle: 30,
+											  opacity: 0.85
+											});
+	cavasEvent.add(imgInstance);
+	/*imgInstance.on('selected', function() {
+		console.log('you are selected image !');
+	});*/
+
+	/*cavasEvent.on('mouse:down', function(options) {
+		console.log('Positon : ' ,options.e.clientX, options.e.clientY);
+
+	  if (options.target) {
+	    console.log('an object was clicked! ', options.target.type);
+	  }
+	});
+
+	cavasEvent.on('mouse:up', function(options) {
+		 if (options.target) {
+	    console.log('an object was clicked (mouse up)! ', options.target.type);
+	  }
+	});
+
+	cavasEvent.on('mouse:move', function(options) {
+		 if (options.target) {
+	    		console.log('an object was clicked (mouse move)! ', options.target.type, options.e.clientX, options.e.clientY);
+	  }
+	});
+
+	cavasEvent.on('after:render', function() {
+		console.log('456');
+	});*/
+
+	imgInstance.on('moving', function(options) {
+		console.log(options.e.type);
+	});
+
+	function removeImge()
+	{
+		result = cavasEvent.remove(cavasEvent.item(0));
+	}
+
+</script>
+</html>
