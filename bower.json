@@ -1,0 +1,21 @@
+{
+  "name": "Viet Anh",
+  "authors": [
+    "Viet Anh <nv2anh@gmail.com>"
+  ],
+  "description": "Example Canvas",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fabric.js": "fabric#^1.6.0"
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="bower_components/fabric.js/dist/fabric.js"></script>
+	<title>Example Canvas </title>
+</head>
+<body>
+	<canvas id="canvasImage" width="500" height="500"></canvas>
+	<button onclick="return removeImge();"> Remove </button>
+	<img src="test.png" id = "myImge" >
+</body>
+<script type="text/javascript">
+	var canvasImgae = new fabric.Canvas('canvasImage');
+	
+	var image = document.getElementById('myImge');
+	var imgInstance = new fabric.Image(image, {
+											  left: 100,
+											  top: 100,
+											  angle: 30,
+											  opacity: 0.85
+											});
+	canvasImgae.add(imgInstance);
+	imgInstance.on('selected', function() {
+		console.log('you are selected image !');
+	});
+
+	imgInstance.on('dragstart', function() {
+		console.log('dragstart');
+	});
+
+	imgInstance.on('dragend', function() {
+		console.log('dragend');
+	});
+
+
+	/*var shirtImgUri = 'http://img1.baza.vn/upload/products-var-29nKUTqC/cLAMLqyt.jpg?v=635854443926774794&width=300';
+
+	 var imgInstance = new fabric.Image.fromURL(shirtImgUri, function(oImg) {
+		oImg.set({
+		  left: 100,
+		  top: 100,
+		  //angle: 45,
+		  opacity: 1,
+		});
+		oImg.scale(1).setFlipX(false);
+
+		oImg.on('selected', function() {
+			console.log('selected');
+		});
+
+		canvasImgae.add(oImg);
+	});*/
+	
+
+	function removeImge()
+	{
+		//alert(canvasImgae.item(0));
+		result = canvasImgae.remove(canvasImgae.item(0));
+		alert(canvasImgae);
+	}
+
+</script>
+</html>
