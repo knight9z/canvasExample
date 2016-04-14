@@ -16,7 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "fabric.js": "fabric#^1.6.0",
-    "modernizr": "^3.3.1"
+    "fabric.js": "fabric#^1.6.0"
   }
 }

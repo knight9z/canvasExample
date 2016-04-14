@@ -5,7 +5,10 @@
 	<title>Example Canvas </title>
 </head>
 <body>
-	<canvas id="cavasEvent" width="500" height="500"></canvas>
+	<canvas id="cavasEvent" width="500" height="500" style="border:1px solid #ccc">
+		
+	</canvas>
+	
 	<button onclick="return removeImge();"> Remove </button>
 	<img src="test.png" id = "myImge" >
 </body>
@@ -48,9 +51,9 @@
 		console.log('456');
 	});*/
 
-	imgInstance.on('moving', function(options) {
-		console.log(options.e.type);
-	});
+	/*imgInstance.on('moving', function(options) {
+		console.log(options);
+	});*/
 
 	function removeImge()
 	{
