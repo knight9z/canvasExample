@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            #canvas-container {
+                position: relative;
+                width: 800px;
+                height: 600px;
+                box-shadow: 0 0 5px 1px black;
+                margin: 10px auto;
+                border: 5px solid transparent;
+            }
+            #canvas-container.over {
+                border: 5px dashed cyan;
+            }
+        </style>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <script type="text/javascript" src="bower_components/fabric.js/dist/fabric.js"></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <!-- Based on the tutorial at http://www.html5rocks.com/en/tutorials/dnd/basics/ -->
+        <div class="row" style="width: 50%; margin-left: 20px; margin-bottom: 20px">
+            <label draggable="true">Enter Text description</label>
+            <input type="text" name="text-input" class="form-control" style="margin-bottom: 20px;">
+            <button class="btn btn-primary"> Add text</button>
+        </div>
+
+        <div id="canvas-container">
+            <canvas id="canvas" width="800" height="600"></canvas>
+        </div>
+
+
+        <script type="text/javascript">
+            var canvas = new fabric.Canvas('canvas');
+
+            $("button").click(function(){
+                $textValue = $('input[name=text-input]');
+
+                if ($textValue.val() === '') {
+                    alert('Not empty');
+                } else {
+                    posX = canvas.width / 2;
+                    posY = canvas.height / 2;
+
+                    var newIText = new fabric.IText($textValue.val(), {
+                        left: posX,
+                        top: posY
+
+                    });
+                    canvas.add(newIText);
+                    $textValue.val('');
+                }
+            });
+
+        </script>
+    </body>
+</html>
